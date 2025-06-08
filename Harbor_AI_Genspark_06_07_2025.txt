@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbor AI - Professional Web Design & Digital Services | Bradley Beach, NJ</title>
+    <meta name="description" content="Professional websites, logos & newsletters for small businesses in Bradley Beach & Staten Island. Starting at $499. Veteran-owned with 20+ years of reliable service.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #031227;
+            color: #fefFff;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #031227 0%, #0c3b5f 50%, #2a88c5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            background-color: rgba(44, 82, 130, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+            border-color: #38bdf8;
+            background-color: rgba(44, 82, 130, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00a8ff, #38bdf8);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.4);
+            background: linear-gradient(135deg, #0088ff, #00a8ff);
+        }
+        
+        .section-divider {
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+            margin: 4rem 0;
+        }
+        
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.875rem;
+            background: linear-gradient(135deg, #fefFff, #38bdf8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-logo {
+            font-weight: 900;
+            font-size: 4rem;
+            line-height: 1;
+            background: linear-gradient(135deg, #fefFff, #38bdf8, #ff6b35);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-headline {
+            font-weight: 600;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            color: #fefFff;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-logo {
+                font-size: 5rem;
+            }
+            .hero-headline {
+                font-size: 3rem;
+            }
+        }
+        
+        .pricing-popular {
+            border: 2px solid #38bdf8;
+            position: relative;
+            background-color: rgba(56, 189, 248, 0.05);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+        }
+        
+        .pricing-popular::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff6b35, #38bdf8);
+            color: #031227;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #00a8ff, #38bdf8);
+            color: #031227;
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.3);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .testimonial-bg {
+            background: rgba(56, 189, 248, 0.08);
+            border-left: 4px solid #38bdf8;
+            position: relative;
+        }
+        
+        .testimonial-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, transparent 70%, rgba(56, 189, 248, 0.05));
+            pointer-events: none;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #041528 0%, #0a2a4a 100%);
+            position: relative;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            background-color: rgba(44, 82, 130, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: #fefFff;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #00a8ff;
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.2);
+            background-color: rgba(44, 82, 130, 0.25);
+        }
+        
+        .success-icon {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+        
+        .body-text {
+            color: #a8b3c4;
+        }
+        
+        .secondary-text {
+            color: #9ca3af;
+        }
+        
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #00a8ff, #38bdf8);
+            border-radius: 2px;
+        }
+        
+        .lightning-accent {
+            color: #38bdf8;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+        
+        .orange-accent {
+            color: #ff6b35;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+        }
+        
+        .feature-badge {
+            background: linear-gradient(135deg, #ff6b35, #38bdf8);
+            color: #031227;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            color: rgba(56, 189, 248, 0.1);
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .highlight-number {
+            color: #38bdf8;
+            font-weight: 800;
+            font-size: 1.2em;
+        }
+        
+        .header-nav {
+            background-color: rgba(3, 18, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        
+        .header-nav .nav-logo {
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links {
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+        }
+        
+        .hero-container {
+            padding-top: 6rem;
+        }
+        
+        .orange-glow {
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .service-icon:hover {
+            background: linear-gradient(135deg, #ff6b35, #00a8ff);
+            transform: scale(1.05);
+        }
+        
+        .contact-info-item:hover .lightning-accent {
+            color: #ff6b35;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 header-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <div class="nav-logo">Harbor AI</div>
+                <div class="hidden md:flex space-x-2 nav-links">
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center relative">
+        <div class="floating-elements">
+            <i class="floating-icon fas fa-bolt" style="top: 20%; left: 10%; animation-delay: 0s;"></i>
+            <i class="floating-icon fas fa-code" style="top: 60%; left: 85%; animation-delay: 2s;"></i>
+            <i class="floating-icon fas fa-rocket" style="top: 80%; left: 15%; animation-delay: 4s;"></i>
+            <i class="floating-icon fas fa-star" style="top: 30%; left: 80%; animation-delay: 1s;"></i>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 hero-container">
+            <div class="feature-badge pulse-animation">
+                <i class="fas fa-bolt mr-2"></i>
+                Bradley Beach Web Design
+            </div>
+            <h1 class="hero-logo">Harbor AI</h1>
+            <h2 class="hero-headline">Digital Solutions That Work</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto body-text">
+                <i class="fas fa-check-circle success-icon mr-2"></i>
+                I'm Michael Gargiso, bringing the same dedication and attention to detail I learned in <span class="highlight-number">20+</span> years of public service to helping local business websites in New Jersey build their digital presence. When you work with Harbor AI, you get reliability, commitment, and solutions that actually work.
+            </p>
+            <a href="#contact" class="btn-primary inline-block px-8 py-4 rounded-lg text-lg font-semibold text-white">
+                <i class="fas fa-rocket mr-2"></i>Start Your Project
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="feature-badge">
+                    <i class="fas fa-cogs mr-2"></i>Staten Island Digital Services
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-header">Services That Transform Your Business</h2>
+                <p class="text-xl body-text">From websites to newsletters, every solution is designed to elevate your professional presence</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+                <div class="card-hover p-8 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-bolt orange-accent"></i>
+                    </div>
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Website Development</h3>
+                    <p class="body-text mb-4">Custom websites that convert visitors into customers. Responsive, fast-loading, and SEO-optimized designs perfect for local business websites that work across all devices.</p>
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check success-icon mr-2"></i>
+                        <span class="body-text">Mobile Responsive</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover p-8 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-bolt orange-accent"></i>
+                    </div>
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Logo & Brand Design</h3>
+                    <p class="body-text mb-4">Professional branding that makes you instantly recognizable. From logo design to complete brand identity systems that build trust for New Jersey businesses.</p>
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check success-icon mr-2"></i>
+                        <span class="body-text">Complete Brand Identity</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover p-8 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-bolt orange-accent"></i>
+                    </div>
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-newspaper text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Newsletter Creation</h3>
+                    <p class="body-text mb-4">Engaging newsletters that keep your audience connected. Professional layouts and content organization that drives higher engagement for your community.</p>
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check success-icon mr-2"></i>
+                        <span class="body-text">Print & Digital Ready</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover p-8 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-bolt orange-accent"></i>
+                    </div>
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">AI-Enhanced Systems</h3>
+                    <p class="body-text mb-4">Streamlined digital workflows that save time and eliminate repetitive tasks. Smart automation that works behind the scenes for small businesses.</p>
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check success-icon mr-2"></i>
+                        <span class="body-text">Time-Saving Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto px-4"></div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="feature-badge">
+                    <i class="fas fa-tag mr-2"></i>Transparent Pricing
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-header">Choose Your Package</h2>
+                <p class="text-xl body-text">Transparent pricing with no hidden fees. Every package includes unlimited revisions until you're <span class="highlight-number">100%</span> satisfied.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="card-hover p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe lightning-accent mr-3"></i>
+                        <h3 class="text-2xl font-semibold">Website Package</h3>
+                    </div>
+                    <div class="text-4xl font-bold mb-2 text-white">$499</div>
+                    <div class="text-lg mb-6 body-text">+ $49/month maintenance</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Professional 5-page website</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Mobile responsive design</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Contact forms & Google Maps</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Basic SEO setup</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Monthly maintenance included</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>1 content update per month</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary block text-center py-3 rounded-lg font-semibold text-white">
+                        <i class="fas fa-arrow-right mr-2"></i>Get Started
+                    </a>
+                </div>
+                
+                <div class="card-hover pricing-popular p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star orange-accent mr-3"></i>
+                        <h3 class="text-2xl font-semibold">Complete Business Package</h3>
+                    </div>
+                    <div class="text-4xl font-bold mb-2 text-white">$899</div>
+                    <div class="text-lg mb-6 body-text">+ $79/month maintenance</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Everything in Website Package</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Professional logo design</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Business card design</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Newsletter template</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Social media setup</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>3 content updates per month</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Priority phone support</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary block text-center py-3 rounded-lg font-semibold text-white">
+                        <i class="fas fa-rocket mr-2"></i>Choose Complete
+                    </a>
+                </div>
+                
+                <div class="card-hover p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-envelope-open lightning-accent mr-3"></i>
+                        <h3 class="text-2xl font-semibold">Newsletter Service</h3>
+                    </div>
+                    <div class="text-4xl font-bold mb-2 text-white">$199</div>
+                    <div class="text-lg mb-6 body-text">per month</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Professional newsletter design</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>You provide content & photos</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>PDF and email formats</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Monthly or quarterly options</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Print-ready files included</li>
+                        <li class="flex items-center body-text"><i class="fas fa-check success-icon mr-3"></i>Unlimited revisions</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary block text-center py-3 rounded-lg font-semibold text-white">
+                        <i class="fas fa-play mr-2"></i>Start Newsletter
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <div class="card-hover p-8 rounded-xl mb-8 max-w-2xl mx-auto orange-glow">
+                    <div class="feature-badge mb-4">
+                        <i class="fas fa-gift mr-2"></i>Special Offer
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Free Website Demo</h3>
+                    <p class="body-text">Not sure? I'll build you a sample website first - no commitment required!</p>
+                </div>
+                
+                <p class="text-lg mb-4 body-text">
+                    <i class="fas fa-bolt orange-accent mr-2"></i>
+                    <strong>Individual Services:</strong> Logo Design $299 | Business Cards $99 | Social Media Graphics $149
+                </p>
+                <p class="text-lg font-semibold text-white">
+                    <i class="fas fa-shield-check success-icon mr-2"></i>
+                    <span class="highlight-number">100%</span> Satisfaction Guarantee - I'll revise until it meets your expectations
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto px-4"></div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="feature-badge">
+                    <i class="fas fa-trophy mr-2"></i>Proven Results
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-header">Recent Work</h2>
+                <p class="text-xl body-text">Professional projects that showcase the quality and attention to detail you can expect from this New Jersey web developer</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover p-8 rounded-xl relative">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-fire orange-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">FDNY Staten Island Retirees Newsletter</h3>
+                    <p class="mb-6 body-text">Complete newsletter redesign and monthly publication management for retired FDNY professionals. Increased member engagement by <span class="highlight-number">40%</span> with professional layout and engaging content.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Newsletter Design</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Content Management</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Print Design</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover p-8 rounded-xl relative">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-rocket orange-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">FDNY Staten Island Retirees Website</h3>
+                    <p class="mb-6 body-text">Full website rebuild with improved navigation, member resources, and mobile-responsive design. Streamlined content organization and enhanced user experience.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Website Design</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Content Strategy</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">SEO</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover p-8 rounded-xl relative">
+                    <div class="absolute top-4 right-4">
+                        <i class="fas fa-star orange-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Professional Branding Package</h3>
+                    <p class="mb-6 body-text">Complete brand identity system including logo design, color palette development, and business collateral for a growing Bradley Beach business.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Logo Design</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Brand Identity</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Business Cards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto px-4"></div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="feature-badge mb-6">
+                        <i class="fas fa-user-shield mr-2"></i>About Michael
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 section-header">Expertise Built on Reliability</h2>
+                    <p class="text-lg mb-6 body-text">
+                        My approach combines technical expertise with practical simplicity. I believe technology should make your life easier, not more complicated. Whether you need a website that truly represents your business or digital systems that save you time - I'm here to help.
+                    </p>
+                    <p class="text-lg mb-6 body-text">
+                        My background includes <span class="highlight-number">20+</span> years with FDNY (E-158), which taught me the importance of reliability, precision, and being there when people need you most. This foundation of service and dedication drives everything I do at Harbor AI.
+                    </p>
+                    <p class="text-lg mb-8 body-text">
+                        Serving small businesses throughout Bradley Beach, Staten Island, and the greater New Jersey area.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="card-hover p-6 rounded-xl">
+                            <i class="fas fa-shield-alt text-3xl mb-4 orange-accent"></i>
+                            <h3 class="text-xl font-semibold mb-2">Proven Reliability</h3>
+                            <p class="body-text"><span class="highlight-number">20+</span> years of public service background ensures dependable, professional results.</p>
+                        </div>
+                        <div class="card-hover p-6 rounded-xl">
+                            <i class="fas fa-map-marker-alt text-3xl mb-4 lightning-accent"></i>
+                            <h3 class="text-xl font-semibold mb-2">Local Expertise</h3>
+                            <p class="body-text">Based in Bradley Beach, NJ with deep understanding of local business needs.</p>
+                        </div>
+                        <div class="card-hover p-6 rounded-xl">
+                            <i class="fas fa-handshake text-3xl mb-4 orange-accent"></i>
+                            <h3 class="text-xl font-semibold mb-2">Transparent Process</h3>
+                            <p class="body-text">Collaborative approach with unlimited revisions and clear communication.</p>
+                        </div>
+                        <div class="card-hover p-6 rounded-xl">
+                            <i class="fas fa-trophy text-3xl mb-4 lightning-accent"></i>
+                            <h3 class="text-xl font-semibold mb-2">Quality Focus</h3>
+                            <p class="body-text">No cookie-cutter designs - every project is crafted for maximum impact.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:text-center">
+                    <div class="testimonial-bg p-8 rounded-xl relative">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-quote-right orange-accent text-2xl"></i>
+                        </div>
+                        <div class="text-6xl mb-4 lightning-accent">"</div>
+                        <p class="text-xl mb-6 italic">Michael completely transformed our newsletter. His design skills and attention to detail have made our communications more professional and engaging. We've seen a significant increase in member engagement since working with Harbor AI.</p>
+                        <div class="text-lg font-semibold">Woody Wall</div>
+                        <div class="body-text">President, FDNY Staten Island Retirees</div>
+                        <div class="flex justify-center mt-4">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto px-4"></div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="feature-badge">
+                    <i class="fas fa-question-circle mr-2"></i>Common Questions
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-header">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="faq-item pb-8">
+                    <div class="flex items-start">
+                        <i class="fas fa-clock orange-accent mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">How long does it take to build a website?</h3>
+                            <p class="text-lg body-text">Most projects can be completed within <span class="highlight-number">2-3</span> weeks, depending on complexity and your feedback timeline. Simple landing pages may be completed in as little as <span class="highlight-number">one week</span>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item pb-8">
+                    <div class="flex items-start">
+                        <i class="fas fa-tools lightning-accent mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Do you provide ongoing website maintenance?</h3>
+                            <p class="text-lg body-text">Yes! I offer monthly maintenance packages to keep your website secure, updated, and running smoothly. This includes regular backups, security updates, and content changes as needed.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item pb-8">
+                    <div class="flex items-start">
+                        <i class="fas fa-medal orange-accent mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">What makes your approach different from other designers?</h3>
+                            <p class="text-lg body-text">My approach is rooted in the reliability and attention to detail developed during <span class="highlight-number">20+</span> years of public service. I focus on creating strategic, practical solutions rather than just pretty designs. Every project includes unlimited revisions and transparent communication.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item pb-8">
+                    <div class="flex items-start">
+                        <i class="fas fa-box lightning-accent mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Do you offer package deals for multiple services?</h3>
+                            <p class="text-lg body-text">Absolutely! My Website, Complete Business, and Newsletter packages combine multiple services at significant savings compared to individual pricing. This ensures a cohesive brand experience across all your materials.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto px-4"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="feature-badge">
+                    <i class="fas fa-handshake mr-2"></i>Let's Connect
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-header">Ready to Transform Your Digital Presence?</h2>
+                <p class="text-xl body-text">Let's discuss how Harbor AI can help you stand out with professional, reliable digital solutions</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">
+                        <i class="fas fa-bolt lightning-accent mr-2"></i>Get In Touch
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center card-hover p-4 rounded-lg contact-info-item">
+                            <i class="fas fa-envelope text-2xl mr-4 lightning-accent"></i>
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="body-text">mikegargiso@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center card-hover p-4 rounded-lg contact-info-item">
+                            <i class="fas fa-phone text-2xl mr-4 lightning-accent"></i>
+                            <div>
+                                <div class="font-semibold">Phone</div>
+                                <div class="body-text">(347) 210-6441</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center card-hover p-4 rounded-lg contact-info-item">
+                            <i class="fas fa-globe text-2xl mr-4 lightning-accent"></i>
+                            <div>
+                                <div class="font-semibold">Website</div>
+                                <div class="body-text">www.HarborAI.io</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center card-hover p-4 rounded-lg contact-info-item">
+                            <i class="fas fa-map-marker-alt text-2xl mr-4 lightning-accent"></i>
+                            <div>
+                                <div class="font-semibold">Location</div>
+                                <div class="body-text">Bradley Beach, NJ</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">
+                        <i class="fas fa-paper-plane orange-accent mr-2"></i>Send a Message
+                    </h3>
+                    <form class="contact-form space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Project Type" class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <textarea rows="5" placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded-lg focus:outline-none resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-white">
+                            <i class="fas fa-rocket mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="nav-logo text-3xl mb-4">Harbor AI</div>
+                <p class="body-text mb-4">
+                    <i class="fas fa-bolt orange-accent mr-2"></i>Digital Solutions That Work
+                </p>
+                <div class="space-y-2 mb-6">
+                    <p class="body-text">Harbor AI - Digital Solutions That Work</p>
+                    <p class="body-text">Bradley Beach, NJ</p>
+                    <p class="body-text">Phone: (347) 210-6441</p>
+                    <p class="body-text">Email: mikegargiso@gmail.com</p>
+                </div>
+                <p class="body-text">© 2024 Harbor AI. Built with reliability and precision in Bradley Beach, NJ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you within 24 hours.');
+        });
+
+        // Add floating animation delay randomization
+        document.querySelectorAll('.floating-icon').forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 1.5}s`;
+        });
+    </script>
+</body>
+</html>
